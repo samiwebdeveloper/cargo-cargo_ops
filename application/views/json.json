@@ -1,0 +1,22 @@
+[
+    {
+        "service_name": "Detain",
+        "Total": 5053,
+        "color": "#A50FC1"
+    },
+    {
+        "service_name": "Over Night",
+        "Total": 1892,
+        "color": "#02DFC1"
+    },
+    {
+        "service_name": "Over Land",
+        "Total": 1126,
+        "color": "#E359B0"
+    },
+    {
+        "service_name": "Air Frieght",
+        "Total": 24,
+        "color": "#9D874B"
+    }
+]
