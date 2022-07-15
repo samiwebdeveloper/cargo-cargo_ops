@@ -26,12 +26,51 @@ class DcStatus extends CI_Controller
             $dc_summary['month'] = $this->DcStatusModel->dc_summary_soft_copy_pending_month();
             $dc_summary['hsummary'] = $this->DcStatusModel->dc_summary_hard_copy_pending();
             $dc_summary['hmonth'] = $this->DcStatusModel->dc_summary_hard_copy_pending_month();
-          
-            $this->load->view('module_dcstatus/dcsummary',$dc_summary);
+            $dc_summary['dc_summary_soft_copy_summary'] = $this->DcStatusModel->dc_summary_soft_copy_summary();
+
+            $this->load->view('module_dcstatus/dcsummary', $dc_summary);
         } else {
             echo ("<center><h1>Access Denied.........<BR>Name: " . $_SESSION['user_name'] . " <BR>IP: " . $this->get_client_ip() . "</h1></center>");
         }
     }
+
+    public function get_all_record()
+    {
+
+        $customer_id = $_GET['get_customer'];
+        $table_name = $_GET['table_name'];
+        $get_month = $_GET['get_month'];
+
+        if ($table_name == "completed") {
+            echo $message = base_url() . "DcStatus/get_complete_dc_record/" . $customer_id . "/" . $get_month;
+        } else if ($table_name == "soft_copy_pending") {
+            echo $message = base_url() . "DcStatus/soft_copy_pending/" . $customer_id . "/" . $get_month;
+        } else if ($table_name == "hard_copy_pending") {
+            echo $message = base_url() . "DcStatus/hard_copy_pending/" . $customer_id . "/" . $get_month;
+        }
+    }
+    public function soft_copy_pending()
+    {
+        $customer_id = $this->uri->segment(3);
+        $get_month = $this->uri->segment(4);
+        $soft_copy_pending['soft_copy_pending'] = $this->DcStatusModel->soft_copy_pending($customer_id, $get_month);
+        $this->load->view('module_dcstatus/dc_soft_copy_cust', $soft_copy_pending);
+    }
+    public function hard_copy_pending()
+    {
+        $customer_id = $this->uri->segment(3);
+        $get_month = $this->uri->segment(4);
+        $hard_copy_pending['hard_copy_pending'] = $this->DcStatusModel->hard_copy_pending($customer_id, $get_month);
+        $this->load->view('module_dcstatus/dc_hard_copy_cust', $hard_copy_pending);
+    }
+    public function get_complete_dc_record()
+    {
+        $customer_id = $this->uri->segment(3);
+        $get_month = $this->uri->segment(4);
+        $get_complete_dc['get_complete_dc'] = $this->DcStatusModel->get_complete_dc($customer_id, $get_month);
+        $this->load->view('module_dcstatus/dc_complete_cust', $get_complete_dc);
+    }
+
     public function pending_dc_status()
     {
         if ($_SESSION['user_power'] == 'CS' || $_SESSION['user_power'] == 'SE' || $_SESSION['user_power'] == 'BM') {
@@ -158,11 +197,12 @@ class DcStatus extends CI_Controller
                 }
                 $csv_row++;
             }
-          
+
             fclose($handle);
             foreach ($insert_record_id as $get_order_id) {
                 $order_id = $get_order_id;
                 $get_records_by_id = $this->DcStatusModel->Get_Dc_Status_order_id($order_id);
+
                 if (!empty($get_records_by_id)) {
                     foreach ($get_records_by_id as $value) {
                         if (!in_array($value['row_id'], array_column($record, 'row_id'))) {
