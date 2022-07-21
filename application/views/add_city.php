@@ -6,6 +6,10 @@ $this->load->view('inc/header');
     .alert .close {
         top: -14.5px;
     }
+    tr.group,
+tr.group:hover {
+    background-color: #ddd !important;
+}
 </style>
 <!-- START PAGE CONTENT WRAPPER -->
 <div class="page-content-wrapper">
@@ -21,7 +25,6 @@ $this->load->view('inc/header');
                         <li class="breadcrumb-item">Add City</li>
                         <li class="breadcrumb-item">City</li>
                         <li class="breadcrumb-item"><mark><?php echo date('Y-m-d h:i:a'); ?></mark></li>
-
                     </ol>
                     <!-- END BREADCRUMB -->
                 </div>
@@ -139,25 +142,17 @@ $this->load->view('inc/header');
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <div class="form-group form-group-default ">
-                                                    <label>City Statsu </label>
-                                                    <select class="form-control" id="status" name="city_status">" tabindex=3>
-                                                        <option value="">City Statsu</option>
-                                                        <option value='1' <?php echo set_select('city_status', '1', (!empty($data) && $data == "1" ? TRUE : FALSE)); ?>>Enable</option>
-                                                        <option value='0' <?php echo set_select('city_status', '0', (!empty($data) && $data == "0" ? TRUE : FALSE)); ?>>Disable</option>
+                                                <div class="form-group form-group-default " ria-required="true" id="o_city_div">
+                                                    <label>Select Reporting City</label>
+                                                    <select class="form-control"  id="reporting_city_id" name="reporting_city_id" value="<?php echo set_value('oper_user_city_id'); ?>" tabindex=4>
+                                                        <option value="" selected>Choose City</option>
+                                                        <?php foreach ($Reposrting_city as $city) { ?>
+                                                            <option value=<?php echo $city->city_id; ?> <?php echo set_select('reporting_city_id', $city->city_id); ?>><?php echo $city->city_name ?></option>
+                                                        <?php } ?>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group form-group-default ">
-                                                    <label>Tm Network</label>
-                                                    <select class="form-control" id="city_status" name="tm_network" tabindex=3>
-                                                        <option value="" required=''>Tm Network Status</option>
-                                                        <option value='1' <?php echo set_select('tm_network', '1', (!empty($data) && $data == "1" ? TRUE : FALSE)); ?>>True</option>
-                                                        <option value='0' <?php echo set_select('tm_network', '0', (!empty($data) && $data == "0" ? TRUE : FALSE)); ?>>False</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                          
                                             <style>
                                                 .form-group-default textarea.form-control {
                                                     padding: 25px 5px;
@@ -197,6 +192,7 @@ $this->load->view('inc/header');
                                                         <th> mixture </th>
                                                         <th> city_region </th>
                                                         <th> city_type </th>
+                                                        <th> reporitng city </th>
                                                         <th> tm_network </th>
                                                         <th> tm_remark </th>
                                                         <th> created_by </th>
@@ -209,8 +205,9 @@ $this->load->view('inc/header');
                                                     <?php
                                                     $i = 0;
                                                     $locs = array_column($country_data, 'country_name', 'country_id');
+                                                    $city_da = array_column($Reposrting_city, 'city_name', 'city_id');
                                                     foreach ($city_data as $rows) {
-
+                                                       
                                                         $i = $i + 1;
                                                         $userid = $rows->city_id;
                                                         echo ("<tr>");
@@ -225,6 +222,7 @@ $this->load->view('inc/header');
                                                         echo ("<td>" . $rows->mixture . "</td>");
                                                         echo ("<td>" . $rows->city_region . "</td>");
                                                         echo ("<td>" . $rows->city_type . "</td>");
+                                                        echo ("<td>" . $city_da[$rows->reporting_city] . "</td>");
                                                         echo ("<td>" . $rows->tm_network . "</td>");
                                                         echo ("<td>" . $rows->tm_remark . "</td>");
                                                         echo ("<td>" . $rows->created_by . "</td>");
@@ -236,9 +234,9 @@ $this->load->view('inc/header');
                                                         <?php }
 
                                                         if ($rows->is_enable) { ?>
-                                                            <td><a class="btn btn-primary btn-xs" style="text-decoration: none;background: #dc3545;color: white; border-radius: 3px;border: 2px solid #dc3545;padding: 1px 9px;" href="addcity/status/0/?id=<?= $userid; ?>">Disable</a></td>
+                                                            <td><a class="btn btn-primary btn-xs" style="text-decoration: none;background: #dc3545;color: white; border-radius: 3px;border: 2px solid #dc3545;padding: 1px 9px;" href="AddCity/status/0/<?= $userid; ?>">Disable</a></td>
                                                         <?php } else { ?>
-                                                            <td><a class="btn btn-primary btn-xs" style="text-decoration: none;background: #28a745;color: white;border-radius: 3px;border: 2px solid #28a745;padding: 1px 11px;" href="addcity/status/1/?id=<?= $userid ?>">Enable</a></td>
+                                                            <td><a class="btn btn-primary btn-xs" style="text-decoration: none;background: #28a745;color: white;border-radius: 3px;border: 2px solid #28a745;padding: 1px 11px;" href="AddCity/status/1/<?= $userid ?>">Enable</a></td>
                                                     <?php }
                                                         echo ("</tr>");
                                                     }
@@ -269,72 +267,19 @@ $this->load->view('inc/header');
             $('#o_city').select2();
             $('#rider_id').select2();
             $('#status').select2();
-            $('input[type="number"]').keydown(function(e) {
-                if (e.keyCode == 13) {
-                    if ($(':input:eq(' + ($(':input').index(this) + 1) + ')').attr('type') == 'submit') { // check for submit button and submit form on enter press
-                        return true;
-                    }
-                    $(':input:eq(' + ($(':input').index(this) + 1) + ')').focus();
-                    return false;
-                }
-            });
+            $('#reporting_city_id').select2();
 
-            $('input[type="date"]').keydown(function(e) {
-                if (e.keyCode == 13) {
-                    if ($(':input:eq(' + ($(':input').index(this) + 1) + ')').attr('type') == 'submit') { // check for submit button and submit form on enter press
-                        return true;
-                    }
-                    $(':input:eq(' + ($(':input').index(this) + 1) + ')').focus();
-                    return false;
-                }
-            });
-
-            $('input[type="text"]').keydown(function(e) {
-                if (e.keyCode == 13) {
-                    if ($(':input:eq(' + ($(':input').index(this) + 1) + ')').attr('type') == 'submit') { // check for submit button and submit form on enter press
-                        return true;
-                    }
-                    $(':input:eq(' + ($(':input').index(this) + 1) + ')').focus();
-                    return false;
-                }
-            });
-
-
-            $('input[type="email"]').keydown(function(e) {
-                if (e.keyCode == 13) {
-                    if ($(':input:eq(' + ($(':input').index(this) + 1) + ')').attr('type') == 'submit') { // check for submit button and submit form on enter press
-                        return true;
-                    }
-                    $(':input:eq(' + ($(':input').index(this) + 1) + ')').focus();
-                    return false;
-                }
-            });
-
-
-            $('checkbox').keydown(function(e) {
-                if (e.keyCode == 13) {
-                    if ($(':input:eq(' + ($(':input').index(this) + 1) + ')').attr('type') == 'submit') { // check for submit button and submit form on enter press
-                        return true;
-                    }
-                    $(':input:eq(' + ($(':input').index(this) + 1) + ')').focus();
-                    return false;
-                }
-            });
         });
     </script>
     <script type="text/javascript">
-        $(document).ready(function() {
-            var table = $('#myTable').DataTable({
-                "displayLength": 25,
+     $(document).ready(function () {
+    var groupColumn = 11;
+    var table = $('#myTable').DataTable({
+        "displayLength": 20,
                 "lengthMenu": [
-                    [25, 50, 100, 200, 500, -1],
-                    [25, 50, 100, 200, 500, "All"]
+                    [20, 50, 100, 200, 500, -1],
+                    [20, 50, 100, 200, 500, "All"]
                 ],
-                fixedHeader: true,
-                "searching": true,
-                "paging": true,
-                "ordering": true,
-                "bInfo": true,
                 dom: 'Blfrtip',
                 buttons: [
                     'colvis',
@@ -360,7 +305,37 @@ $this->load->view('inc/header');
                         message: "Delivery Express <br> System Developer M.Saim <br>Date:<?php echo $start_date . " To " . $end_date; ?> <br>  QSR Report<br>"
                     },
 
-                ]
-            });
-        });
+                ],
+        columnDefs: [{ visible: false, targets: groupColumn }],
+        order: [[groupColumn, 'desc']],
+        drawCallback: function (settings) {
+            var api = this.api();
+            var rows = api.rows({ page: 'current' }).nodes();
+            var last = null;
+ 
+            api
+                .column(groupColumn, { page: 'current' })
+                .data()
+                .each(function (group, i) {
+                    if (last !== group) {
+                        $(rows)
+                            .eq(i)
+                            .before('<tr class="group"><th colspan="17"> ' + group + ' [Reporting City]</th></tr>');
+ 
+                        last = group;
+                    }
+                });
+        },
+    });
+ 
+    // Order by the grouping
+    $('#example tbody').on('click', 'tr.group', function () {
+        var currentOrder = table.order()[0];
+        if (currentOrder[0] === groupColumn && currentOrder[1] === 'asc') {
+            table.order([groupColumn, 'desc']).draw();
+        } else {
+            table.order([groupColumn, 'asc']).draw();
+        }
+    });
+});
     </script>

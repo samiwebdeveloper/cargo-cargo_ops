@@ -28,8 +28,8 @@ $this->load->view('inc/header');
                 <div class="inner">
                     <!-- START BREADCRUMB -->
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item">Dc Status</li>
-                        <li class="breadcrumb-item">Dc Pending Report</li>
+                    <li class="breadcrumb-item">DC Hard Copy Pending</li>
+                        <li class="breadcrumb-item">DC Hard Copy Pending Customer&Month Wise </li>
                         <li class="breadcrumb-item"><mark><?php echo date('Y-m-d H:i:s'); ?></mark></li>
                     </ol>
                     <!-- END BREADCRUMB -->
@@ -44,35 +44,7 @@ $this->load->view('inc/header');
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
                     <div class=" container-fluid   container-fixed-lg bg-gray">
-                        <div class="card ">
-                            <div class="card-header  separator">
-                                <div class="form-group-attached">
-                                    <div class="row clearfix">
-                                        <div class="col-sm-3">
-                                            <div class="form-group form-group-default required" id="user_name_div">
-                                                <form method="POST" action="pending_dc_report">
-                                                    <label>Start Date</label>
-                                                    <input type="date" class="form-control" id="start_date" name="start_date" required="" value="<?php if (!empty($date)) {
-                                                                                                                                                        echo ($date[0]);
-                                                                                                                                                    } ?>">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="form-group form-group-default required">
-                                                <label>End Date</label>
-                                                <input type="date" class="form-control" id="end_date" name="end_date" required="" value="<?php if (!empty($date)) {
-                                                                                                                                                echo ($date[1]);
-                                                                                                                                            } ?>">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <button id="date_range" class='btn btn-primary' style="height:100%">GO</button>
-                                        </div>
-                                    </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                       
                         <div class="row mb-1 mt-0">
                             <div class="col-md-12">
                                 <div class="card ">
@@ -108,7 +80,7 @@ $this->load->view('inc/header');
                                                 <tbody id="pendingtable">
                                                     <?php
                                                     $i = 0;
-                                                    foreach ($pending as $rows) {
+                                                    foreach ($hard_copy_pending as $rows) {
                                                         $i = $i + 1;
                                                         $id = $rows['row_id'];
                                                         $dcNO = $rows['dc_No'];

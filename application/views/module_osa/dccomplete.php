@@ -29,7 +29,7 @@ $this->load->view('inc/header');
                     <!-- START BREADCRUMB -->
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">Dc Status</li>
-                        <li class="breadcrumb-item">Dc Pending Report</li>
+                        <li class="breadcrumb-item">Dc Complete Report</li>
                         <li class="breadcrumb-item"><mark><?php echo date('Y-m-d H:i:s'); ?></mark></li>
                     </ol>
                     <!-- END BREADCRUMB -->
@@ -72,6 +72,7 @@ $this->load->view('inc/header');
                                     </form>
                                 </div>
                             </div>
+
                         </div>
                         <div class="row mb-1 mt-0">
                             <div class="col-md-12">
@@ -80,7 +81,7 @@ $this->load->view('inc/header');
                                         <div class="table-responsive ">
                                             <div><?php echo $errors[0] ?><?php echo $errors[1] ?></div>
                                             <div id="msg_div"></div>
-                                            <table class="table table-bordered compact nowrap dataTable no-footer" id="emp_table" width="99%">
+                                            <table class="table table-bordered compact nowrap dataTable no-footer" id="emp_table" width="100%">
                                                 <thead>
                                                     <tr>
                                                         <th width=10px> Sr#</th>
@@ -114,15 +115,17 @@ $this->load->view('inc/header');
                                                         $dcNO = $rows['dc_No'];
                                                         $order_id = $rows['order_code'];
                                                         $manual_cn = $rows['manual_cn'];
+
                                                         $soft_copy_check = $rows['soft_copy_check'];
                                                         $hard_copy_check = $rows['hard_copy_check'];
                                                         $request_by_check = $rows['request_by_check'];
                                                         $order_status = $rows['order_status'];
                                                         $customer = $rows['customer_name'];
                                                         $consignee_name = $rows['consignee_name'];
+
                                                         $destination_city_name = $rows['destination_city_name'];
                                                         $order_booking_date = $rows['order_arrival_date'];
-
+                                                      
                                                         $soft_copy_by = $rows['soft_by'];
                                                         $soft_copy_at = $rows['soft_copy_at'];
 
@@ -144,38 +147,30 @@ $this->load->view('inc/header');
                                                             <td> <?php echo $consignee_name ?></td>
                                                             <td> <?php echo $destination_city_name ?></td>
                                                             <td hidden> <input type="number" hidden class="row_id" value="<?php echo $id ?>"></td>
-
-                                                            <?php
-                                                            if ($soft_copy_check) {
-                                                                echo '<td class="text-center"> Received</td>';
-                                                                echo '<td class="text-center"> ' . $soft_copy_by . '</td>';
-                                                                echo '<td class="text-center"> ' . $soft_copy_at . '</td>';
-                                                            } else {
-                                                                echo '<td class="text-center">Not Received</td>';
-                                                                echo '<td class="text-center"> ' . $soft_copy_by . '</td>';
-                                                                echo '<td class="text-center"> ' . $soft_copy_at . '</td>';
-                                                            }
-                                                            if ($hard_copy_check) {
-                                                                echo '<td class="text-center"> Received</td>';
-                                                                echo '<td class="text-center"> ' . $hard_copy_by . '</td>';
-                                                                echo '<td class="text-center"> ' . $hard_copy_at . '</td>';
-                                                            } else {
-                                                                echo '<td class="text-center">Not Received</td>';
-                                                                echo '<td class="text-center"> ' . $hard_copy_by . '</td>';
-                                                                echo '<td class="text-center"> ' . $hard_copy_at . '</td>';
-                                                            }
-                                                            if ($request_by_check) {
-                                                                echo '<td class="text-center"> Yes</td>';
-                                                                echo '<td class="text-center"> ' . $requested_by . '</td>';
-                                                                echo '<td class="text-center"> ' . $requested_at . '</td>';
-                                                            } else {
-                                                                echo '<td class="text-center"> No</td>';
-                                                                echo '<td class="text-center"> ' . $requested_by . '</td>';
-                                                                echo '<td class="text-center"> ' . $requested_at . '</td>';
-                                                            }
-                                                            echo '<td class="text-center">Pending</td>';
-                                                            ?>
-
+                                                           
+                                                                <?php
+                                                                if ($soft_copy_check) {
+                                                                    echo '<td class="text-center"> Received</td>';
+                                                                    echo '<td class="text-center"> '.$soft_copy_by.'</td>';
+                                                                    echo '<td class="text-center"> '.$soft_copy_at.'</td>';
+                                                                } 
+                                                                if ($hard_copy_check) {
+                                                                    echo '<td class="text-center"> Received</td>';
+                                                                    echo '<td class="text-center"> '.$hard_copy_by.'</td>';
+                                                                    echo '<td class="text-center"> '.$hard_copy_at.'</td>';
+                                                                } 
+                                                                if ($request_by_check) {
+                                                                    echo '<td class="text-center"> Yes</td>';
+                                                                    echo '<td class="text-center"> '.$requested_by.'</td>';
+                                                                    echo '<td class="text-center"> '.$requested_at.'</td>';
+                                                                } else {
+                                                                    echo '<td class="text-center"> No</td>';
+                                                                    echo '<td class="text-center"> '.$requested_by.'</td>';
+                                                                    echo '<td class="text-center"> '.$requested_at.'</td>';
+                                                                }
+                                                                echo '<td class="text-center">Completed</td>';
+                                                                ?>
+                                                           
                                                         </tr>
                                                     <?php } ?>
                                                 </tbody>
@@ -201,7 +196,7 @@ $this->load->view('inc/header');
     <?php
     $this->load->view('inc/footer');
     ?>
-    <script type="text/javascript">
+   <script type="text/javascript">
         $(document).ready(function() {
             var table = $('#emp_table').DataTable({
                 "lengthMenu": [
@@ -232,7 +227,7 @@ $this->load->view('inc/header');
                         messageTop: 'The information in this table is copyright to Sirius Cybernetics Corp.',
                         text: "<i class='fs-14 pg-form'></i> Excel",
                         titleAttr: 'Excel',
-                        sheetName: 'Pending Dc Report<?php echo $date[0] . " To " .  $date[1]; ?>',
+                        sheetName: 'Pending Dc <?php  echo $date[0] . " To " .  $date[1]; ?>',
                         exportOptions: {
                             columns: ':visible'
                         },
@@ -249,13 +244,17 @@ $this->load->view('inc/header');
                         text: "<i class='fs-14 pg-ui'></i> Print",
                         titleAttr: 'Print',
                         footer: 'true',
-                        title: 'Pending Dc Report<?php echo $date[0] . " To " .  $date[1]; ?>',
+                        title: 'Pending Dc <?php  echo $date[0] . " To " .  $date[1]; ?>',
                         exportOptions: {
                             columns: ':visible'
                         },
-
+                        
                     },
                 ]
             });
         });
     </script>
+
+  
+     
+     

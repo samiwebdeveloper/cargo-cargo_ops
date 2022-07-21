@@ -9,15 +9,15 @@ class DcStatusModel extends CI_Model
 
     public function get_customer_id($customer_name)
     {
-           echo $query = "select * from saimtech_customer where customer_name='$customer_name'";
-           exit;
+        echo $query = "select * from saimtech_customer where customer_name='$customer_name'";
+        exit;
         $res = $this->db->query($query);
         return $res->result_array();
     }
 
-    public function get_complete_dc($customer_id,$get_month)
+    public function get_complete_dc($customer_id, $get_month)
     {
-            $query = "SELECT `row_id`, `dc_No`, `Units_Detail`, `soft_copy_check`, `soft_copy_by`, `soft_copy_at`, `hard_copy_check`, `hard_copy_by`, `hard_copy_at`, `request_by_check`, `requested_by` ,saimtech_customer.customer_name,saimtech_order.order_code,saimtech_order.manual_cn,saimtech_order.order_status,saimtech_order.consignee_name,saimtech_order.destination_city_name,saimtech_order.order_arrival_date,a.oper_user_name as soft_by,b.oper_user_name as hard_by ,c.oper_user_name as request_by from dc_status
+        $query = "SELECT `row_id`, `dc_No`, `Units_Detail`, `soft_copy_check`, `soft_copy_by`, `soft_copy_at`, `hard_copy_check`, `hard_copy_by`, `hard_copy_at`, `request_by_check`, `requested_by` ,saimtech_customer.customer_name,saimtech_order.order_code,saimtech_order.manual_cn,saimtech_order.order_status,saimtech_order.consignee_name,saimtech_order.destination_city_name,saimtech_order.order_arrival_date,a.oper_user_name as soft_by,b.oper_user_name as hard_by ,c.oper_user_name as request_by from dc_status
         inner join saimtech_customer on dc_status.customer_id=saimtech_customer.customer_id 
         inner join saimtech_order on dc_status.order_id=saimtech_order.order_id 
         left join saimtech_oper_user a on dc_status.soft_copy_by = a.oper_user_id 
@@ -27,9 +27,9 @@ class DcStatusModel extends CI_Model
         $res = $this->db->query($query);
         return $res->result_array();
     }
-    public function soft_copy_pending($customer_id,$get_month)
+    public function soft_copy_pending($customer_id, $get_month)
     {
-            $query = "SELECT `row_id`, `dc_No`, `Units_Detail`, `soft_copy_check`, `soft_copy_by`, `soft_copy_at`, `hard_copy_check`, `hard_copy_by`, `hard_copy_at`, `request_by_check`, `requested_by` ,saimtech_customer.customer_name,saimtech_order.order_code,saimtech_order.manual_cn,saimtech_order.order_status,saimtech_order.consignee_name,saimtech_order.destination_city_name,saimtech_order.order_arrival_date,a.oper_user_name as soft_by,b.oper_user_name as hard_by ,c.oper_user_name as request_by from dc_status
+        $query = "SELECT `row_id`, `dc_No`, `Units_Detail`, `soft_copy_check`, `soft_copy_by`, `soft_copy_at`, `hard_copy_check`, `hard_copy_by`, `hard_copy_at`, `request_by_check`, `requested_by` ,saimtech_customer.customer_name,saimtech_order.order_code,saimtech_order.manual_cn,saimtech_order.order_status,saimtech_order.consignee_name,saimtech_order.destination_city_name,saimtech_order.order_arrival_date,a.oper_user_name as soft_by,b.oper_user_name as hard_by ,c.oper_user_name as request_by from dc_status
         inner join saimtech_customer on dc_status.customer_id=saimtech_customer.customer_id 
         inner join saimtech_order on dc_status.order_id=saimtech_order.order_id 
         left join saimtech_oper_user a on dc_status.soft_copy_by = a.oper_user_id 
@@ -39,9 +39,9 @@ class DcStatusModel extends CI_Model
         $res = $this->db->query($query);
         return $res->result_array();
     }
-    public function hard_copy_pending($customer_id,$get_month)
+    public function hard_copy_pending($customer_id, $get_month)
     {
-            $query = "SELECT `row_id`, `dc_No`, `Units_Detail`, `soft_copy_check`, `soft_copy_by`, `soft_copy_at`, `hard_copy_check`, `hard_copy_by`, `hard_copy_at`, `request_by_check`, `requested_by` ,saimtech_customer.customer_name,saimtech_order.order_code,saimtech_order.manual_cn,saimtech_order.order_status,saimtech_order.consignee_name,saimtech_order.destination_city_name,saimtech_order.order_arrival_date,a.oper_user_name as soft_by,b.oper_user_name as hard_by ,c.oper_user_name as request_by from dc_status
+        $query = "SELECT `row_id`, `dc_No`, `Units_Detail`, `soft_copy_check`, `soft_copy_by`, `soft_copy_at`, `hard_copy_check`, `hard_copy_by`, `hard_copy_at`, `request_by_check`, `requested_by` ,saimtech_customer.customer_name,saimtech_order.order_code,saimtech_order.manual_cn,saimtech_order.order_status,saimtech_order.consignee_name,saimtech_order.destination_city_name,saimtech_order.order_arrival_date,a.oper_user_name as soft_by,b.oper_user_name as hard_by ,c.oper_user_name as request_by from dc_status
         inner join saimtech_customer on dc_status.customer_id=saimtech_customer.customer_id 
         inner join saimtech_order on dc_status.order_id=saimtech_order.order_id 
         left join saimtech_oper_user a on dc_status.soft_copy_by = a.oper_user_id 

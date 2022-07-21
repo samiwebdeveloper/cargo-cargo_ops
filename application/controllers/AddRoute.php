@@ -15,27 +15,27 @@ class AddRoute extends CI_Controller
 		$data['route_origin']       = $this->AddRouteModel->Get_record_by_condition('saimtech_city', 'is_enable', 1);
 		$data['route_transit_city']  = $this->AddRouteModel->transit_city();
 		$data['route_list_history']  = $this->AddRouteModel->route_list_history();
-		$route_list_id_arr=array();
-		$route_list_city=array();
-		$route_city_name=array();
+		$route_list_id_arr = array();
+		$route_list_city = array();
+		$route_city_name = array();
 		foreach ($data['route_list_history'] as $route_list_id) {
-			$route_list_id_arr[]= $route_list_id->route_list_id;
+			$route_list_id_arr[] = $route_list_id->route_list_id;
 		}
 
 		foreach ($route_list_id_arr as $route_id) {
-			$list_city=$this->AddRouteModel->route_detail_history($route_id);
-			array_push($route_list_city,$list_city);
+			$list_city = $this->AddRouteModel->route_detail_history($route_id);
+			array_push($route_list_city, $list_city);
 		}
 		$i = 0;
-		 foreach ($route_list_city as $outter_value) {
-			foreach ($outter_value as $key=> $inner_value) {
-				$list_city_name=$this->AddRouteModel->get_route_city_name($inner_value['city_id']);
-			$route_city_name[$i][$key]['city']=$list_city_name;
+		foreach ($route_list_city as $outter_value) {
+			foreach ($outter_value as $key => $inner_value) {
+				$list_city_name = $this->AddRouteModel->get_route_city_name($inner_value['city_id']);
+				$route_city_name[$i][$key]['city'] = $list_city_name;
 			}
 			$i++;
-		 }
-		 $data['route_city_name']  = $route_city_name;
-	
+		}
+		$data['route_city_name']  = $route_city_name;
+
 		$this->load->view('module_administration/addRouteView', $data);
 	}
 

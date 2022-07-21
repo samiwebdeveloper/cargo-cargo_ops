@@ -14,6 +14,7 @@ class AddCity extends CI_Controller
 	{
 		$data['country_data'] = $this->Commonmodel->Get_all_record('saimtech_country');
 		$data['city_data'] = $this->Commonmodel->Get_all_record('saimtech_city');
+		$data['Reposrting_city'] = $this->AddCityModel->Get_all_record();
 		$this->load->view('add_city', $data);
 	}
 	
@@ -68,8 +69,7 @@ class AddCity extends CI_Controller
 						'mixture' => $this->input->post('ex_kpk'),
 						'city_region' => $this->input->post('city_region'),
 						'city_type' => $this->input->post('city_type'),
-						'is_enable' => $this->input->post('city_status'),
-						'tm_network' => $this->input->post('tm_network'),
+						'tm_network' => 0,
 						'tm_remark' => $this->input->post('remark'),
 						'created_by' => $userby,
 						'created_date' => $CreationDate

@@ -105,7 +105,7 @@ class Commonmodel extends CI_Model {
     public function Get_all_record($tablename){
     $query = $this->db->get($tablename);  
     // echo json_encode($arr);
-   return $query->result() ;
+   return $query->result();
     }
     public function Get_all_record_inarray($tablename){
     $query = $this->db->get($tablename);  

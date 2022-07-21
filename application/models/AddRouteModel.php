@@ -5,7 +5,7 @@ class AddRouteModel extends CI_Model
 	public function Insert_record($tablename, $data)
 	{
 		$this->db->insert($tablename, $data);
-		return $this->db->insert_id();   
+		return $this->db->insert_id();
 	}
 
 	function city_code($city_id)
@@ -49,3 +49,4 @@ class AddRouteModel extends CI_Model
 		return $query->result();
 	}
 }
+

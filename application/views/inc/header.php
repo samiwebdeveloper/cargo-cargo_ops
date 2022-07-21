@@ -163,6 +163,36 @@
 					</li>
 					<li class="m-t-10">
 						<a href="javascript:;">
+							<span class="title">OSA</span>
+							<span class=" arrow "></span>
+						</a>
+						<span class="bg-success icon-thumbnail themebtn"><i class="pg-settings_small"></i></span>
+						<ul class="sub-menu">
+						
+							<li class="">
+								<a href="<?php echo base_url(); ?>OSA/upload">Dc File Upload</a>
+								<span class="icon-thumbnail">DFU</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>OSA/pending_osa_status"> OSA Status Update</a>
+								<span class="icon-thumbnail">DSU</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>OSA/pending_dc_report">Dc Pending Report</a>
+								<span class="icon-thumbnail">DPR</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>OSA/complete_dc_status">Dc Complete Report</a>
+								<span class="icon-thumbnail">DCR</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>OSA/dc_summary">Dc Status Summary</a>
+								<span class="icon-thumbnail">DSS</span>
+							</li>
+						</ul>
+					</li>
+					<li class="m-t-10">
+						<a href="javascript:;">
 							<span class="title">Dc Status</span>
 							<span class=" arrow "></span>
 						</a>
@@ -466,6 +496,36 @@
 							<li class="">
 								<a href="<?php echo base_url(); ?>Delivery2">Delivery Phase 2</a>
 								<span class="icon-thumbnail">DD2</span>
+							</li>
+						</ul>
+					</li>
+					<li class="m-t-10">
+						<a href="javascript:;">
+							<span class="title">OSA</span>
+							<span class=" arrow "></span>
+						</a>
+						<span class="bg-success icon-thumbnail themebtn"><i class="pg-settings_small"></i></span>
+						<ul class="sub-menu">
+						
+							<li class="">
+								<a href="<?php echo base_url(); ?>OSA/upload">Dc File Upload</a>
+								<span class="icon-thumbnail">DFU</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>OSA/pending_osa_status"> OSA Status Update</a>
+								<span class="icon-thumbnail">DSU</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>OSA/pending_dc_report">Dc Pending Report</a>
+								<span class="icon-thumbnail">DPR</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>OSA/complete_dc_status">Dc Complete Report</a>
+								<span class="icon-thumbnail">DCR</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>OSA/dc_summary">Dc Status Summary</a>
+								<span class="icon-thumbnail">DSS</span>
 							</li>
 						</ul>
 					</li>
@@ -781,6 +841,36 @@
 							<li class="">
 								<a href="<?php echo base_url(); ?>Complain">Register Complain</a>
 								<span class="icon-thumbnail">RC</span>
+							</li>
+						</ul>
+					</li>
+					<li class="m-t-10">
+						<a href="javascript:;">
+							<span class="title">OSA</span>
+							<span class=" arrow "></span>
+						</a>
+						<span class="bg-success icon-thumbnail themebtn"><i class="pg-settings_small"></i></span>
+						<ul class="sub-menu">
+						
+							<li class="">
+								<a href="<?php echo base_url(); ?>OSA/upload">Dc File Upload</a>
+								<span class="icon-thumbnail">DFU</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>OSA/pending_osa_status"> OSA Status Update</a>
+								<span class="icon-thumbnail">DSU</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>OSA/pending_dc_report">Dc Pending Report</a>
+								<span class="icon-thumbnail">DPR</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>OSA/complete_dc_status">Dc Complete Report</a>
+								<span class="icon-thumbnail">DCR</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>OSA/dc_summary">Dc Status Summary</a>
+								<span class="icon-thumbnail">DSS</span>
 							</li>
 						</ul>
 					</li>
