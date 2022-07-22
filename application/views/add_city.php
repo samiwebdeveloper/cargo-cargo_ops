@@ -329,7 +329,7 @@ tr.group:hover {
     });
  
     // Order by the grouping
-    $('#example tbody').on('click', 'tr.group', function () {
+    $('#myTable tbody').on('click', 'tr.group', function () {
         var currentOrder = table.order()[0];
         if (currentOrder[0] === groupColumn && currentOrder[1] === 'asc') {
             table.order([groupColumn, 'desc']).draw();

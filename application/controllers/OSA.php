@@ -51,7 +51,7 @@ class OSA extends CI_Controller
         $order_osa_sd_total = $_POST['order_osa_sd_total'];
         $edit_order_osa = $_POST['edit_order_osa'];
         $this->OSAModel->update_sd($row_id, $order_osa_sd_total,$edit_order_osa);
-        echo ("<div class='pgn push-on-sidebar-open pgn-bar'><div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>×</span><span class='sr-only'>Close</span></button><strong> Successfully! </strong> Order <b><u>".$row_id."</u></b>  Charges has Applied.</div></div>");
+        echo ("<div class='pgn push-on-sidebar-open pgn-bar'><div class='d alert-success'><button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>×</span><span class='sr-only'>Close</span></button><strong> Successfully! </strong> Order <b><u>".$row_id."</u></b>  Charges has Applied.</div></div>");
 
     }
 

@@ -159,6 +159,14 @@
 								<a href="<?php echo base_url(); ?>Delivery2">Delivery Phase 2</a>
 								<span class="icon-thumbnail">DD2</span>
 							</li>
+						<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_summary">Progress Summary</a>
+								<span class="icon-thumbnail">CPS</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_detail">Progress Detail</a>
+								<span class="icon-thumbnail">CPD</span>
+							</li>
 						</ul>
 					</li>
 					<li class="m-t-10">
@@ -168,7 +176,7 @@
 						</a>
 						<span class="bg-success icon-thumbnail themebtn"><i class="pg-settings_small"></i></span>
 						<ul class="sub-menu">
-						
+
 							<li class="">
 								<a href="<?php echo base_url(); ?>OSA/upload">Dc File Upload</a>
 								<span class="icon-thumbnail">DFU</span>
@@ -198,7 +206,7 @@
 						</a>
 						<span class="bg-success icon-thumbnail themebtn"><i class="pg-settings_small"></i></span>
 						<ul class="sub-menu">
-						
+
 							<li class="">
 								<a href="<?php echo base_url(); ?>DcStatus/upload">Dc File Upload</a>
 								<span class="icon-thumbnail">DFU</span>
@@ -344,6 +352,14 @@
 							<li class="">
 								<a href="<?php echo base_url(); ?>Delivery2">Delivery Phase 2</a>
 								<span class="icon-thumbnail">DD2</span>
+							</li>
+						<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_summary">Progress Summary</a>
+								<span class="icon-thumbnail">CPS</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_detail">Progress Detail</a>
+								<span class="icon-thumbnail">CPD</span>
 							</li>
 						</ul>
 					</li>
@@ -497,6 +513,14 @@
 								<a href="<?php echo base_url(); ?>Delivery2">Delivery Phase 2</a>
 								<span class="icon-thumbnail">DD2</span>
 							</li>
+						<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_summary">Progress Summary</a>
+								<span class="icon-thumbnail">CPS</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_detail">Progress Detail</a>
+								<span class="icon-thumbnail">CPD</span>
+							</li>
 						</ul>
 					</li>
 					<li class="m-t-10">
@@ -506,7 +530,7 @@
 						</a>
 						<span class="bg-success icon-thumbnail themebtn"><i class="pg-settings_small"></i></span>
 						<ul class="sub-menu">
-						
+
 							<li class="">
 								<a href="<?php echo base_url(); ?>OSA/upload">Dc File Upload</a>
 								<span class="icon-thumbnail">DFU</span>
@@ -536,7 +560,7 @@
 						</a>
 						<span class="bg-success icon-thumbnail themebtn"><i class="pg-settings_small"></i></span>
 						<ul class="sub-menu">
-							
+
 							<li class="">
 								<a href="<?php echo base_url(); ?>DcStatus/upload">Dc File Upload</a>
 								<span class="icon-thumbnail">DFU</span>
@@ -734,6 +758,14 @@
 								<a href="<?php echo base_url(); ?>Archive/all_cr_report">CR Report</a>
 								<span class="icon-thumbnail">CR</span>
 							</li>
+						<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_summary">Progress Summary</a>
+								<span class="icon-thumbnail">CPS</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_detail">Progress Detail</a>
+								<span class="icon-thumbnail">CPD</span>
+							</li>
 						</ul>
 					</li>
 					<li class="m-t-10">
@@ -851,7 +883,7 @@
 						</a>
 						<span class="bg-success icon-thumbnail themebtn"><i class="pg-settings_small"></i></span>
 						<ul class="sub-menu">
-						
+
 							<li class="">
 								<a href="<?php echo base_url(); ?>OSA/upload">Dc File Upload</a>
 								<span class="icon-thumbnail">DFU</span>
@@ -881,7 +913,7 @@
 						</a>
 						<span class="bg-success icon-thumbnail themebtn"><i class="pg-settings_small"></i></span>
 						<ul class="sub-menu">
-							
+
 							<li class="">
 								<a href="<?php echo base_url(); ?>DcStatus/upload">Dc File Upload</a>
 								<span class="icon-thumbnail">DFU</span>
@@ -1058,6 +1090,14 @@
 							<li class="">
 								<a href="<?php echo base_url(); ?>Archive/all_cr_report">CR Report</a>
 								<span class="icon-thumbnail">CR</span>
+							</li>
+						<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_summary">Progress Summary</a>
+								<span class="icon-thumbnail">CPS</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_detail">Progress Detail</a>
+								<span class="icon-thumbnail">CPD</span>
 							</li>
 
 						</ul>
@@ -1274,6 +1314,14 @@
 								<a href="<?php echo base_url(); ?>RR">Print RR</a>
 								<span class="icon-thumbnail">RR</span>
 							</li>
+						<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_summary">Progress Summary</a>
+								<span class="icon-thumbnail">CPS</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_detail">Progress Detail</a>
+								<span class="icon-thumbnail">CPD</span>
+							</li>s
 						</ul>
 					</li>
 					<li class="m-t-10">
@@ -1404,6 +1452,14 @@
 								<a href="<?php echo base_url(); ?>RR">Print RR</a>
 								<span class="icon-thumbnail">RR</span>
 							</li>
+						<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_summary">Progress Summary</a>
+								<span class="icon-thumbnail">CPS</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_detail">Progress Detail</a>
+								<span class="icon-thumbnail">CPD</span>
+							</li>
 						</ul>
 					</li>
 					<li class="m-t-10">
@@ -1461,6 +1517,14 @@
 							<li class="">
 								<a href="<?php echo base_url(); ?>RR">Print RR</a>
 								<span class="icon-thumbnail">RR</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_summary">Progress Summary</a>
+								<span class="icon-thumbnail">CPS</span>
+							</li>
+							<li class="">
+								<a href="<?php echo base_url(); ?>CS_Progress/cs_progress_detail">Progress Detail</a>
+								<span class="icon-thumbnail">CPD</span>
 							</li>
 
 						</ul>

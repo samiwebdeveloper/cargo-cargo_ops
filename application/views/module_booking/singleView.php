@@ -871,6 +871,7 @@ $this->load->view('inc/header');
         type: "POST",
         data: mydata,
         success: function(data) {
+          console.log(data);
           //var objJSON = $.parseJSON(data); 
           //$("#msg_show").html(objJSON.notification);
           $("#msg_div").html(data);
