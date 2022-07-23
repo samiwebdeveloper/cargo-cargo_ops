@@ -285,7 +285,7 @@ $this->load->view('inc/footer');
                     $('#date_range').css("cursor", "pointer").html("GO");
                     $("#msg_div").html("");
                     for (var count = 0; count < obj.length; count++) {
-                        data_arr_sum=parseInt(data_arr_sum)+parseInt(obj[count].total_code)
+                        data_arr_sum = parseInt(data_arr_sum) + parseInt(obj[count].total_code)
                         var sub_array = {
                             'sr': (count + 1),
                             'oper_user_name': obj[count].oper_user_name,

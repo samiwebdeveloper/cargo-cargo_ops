@@ -183,7 +183,6 @@ $this->load->view('inc/header');
                                 </div>
                             </div>
                         </div>
-                    
                         <div class="row mb-1 mt-0">
                             <div class="col-md-12">
                                 <div class="card ">
@@ -194,13 +193,13 @@ $this->load->view('inc/header');
                                                 <thead>
                                                     <tr>
                                                         <th width=10px> Sr#</th>
-                                                        <th> order_code </th>
-                                                        <th> manual_cn </th>
-                                                        <th> order_location_name </th>
-                                                        <th> oper_user_name </th>
-                                                        <th> arrival_date </th>
-                                                        <th> evevnt_date </th>
-                                                        <th> order_event </th>
+                                                        <th> order code </th>
+                                                        <th> manual cn </th>
+                                                        <th> order location </th>
+                                                        <th> user name </th>
+                                                        <th> arrival date </th>
+                                                        <th> evevnt date </th>
+                                                        <th> order event </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -340,7 +339,10 @@ $this->load->view('inc/header');
                         .data()
                         .each(function(group, i) {
                             if (last !== group) {
-                                $(rows).eq(i).before('<tr class="group"><th colspan="8">' + group + '</th></tr>');
+                                $(rows)
+                                    .eq(i)
+                                    .before('<tr class="group"><th colspan="8">' + group + '</th></tr>');
+
                                 last = group;
                             }
                         });
