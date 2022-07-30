@@ -240,7 +240,7 @@ $this->load->view('inc/header');
           [10, 25, 50, 100, 250, 500, "All"]
         ],
 
-        fixedHeader: true,
+        'fixedHeader': true,
         "searching": true,
         "paging": true,
         "ordering": true,

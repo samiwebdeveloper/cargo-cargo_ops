@@ -285,7 +285,7 @@ $this->load->view('inc/footer');
                     $('#date_range').css("cursor", "pointer").html("GO");
                     $("#msg_div").html("");
                     for (var count = 0; count < obj.length; count++) {
-                        data_arr_sum=parseInt(data_arr_sum)+parseInt(obj[count].total_code)
+                        data_arr_sum = parseInt(data_arr_sum) + parseInt(obj[count].total_code)
                         var sub_array = {
                             'sr': (count + 1),
                             'oper_user_name': obj[count].oper_user_name,
@@ -370,7 +370,9 @@ $this->load->view('inc/footer');
                     } else {
                         total[group_assoc] = intVal(api.column(5).data()[i]);
                     }
+
                     if (last !== group) {
+                        
                         $(rows).eq(i).before('<tr class="group"><th colspan="5">' + group + '</th><th class="' + group_assoc + '"></th></tr>');
                         $(".add_ops").append('<tr class="group"><td>' + sr + '</td><td >' + group + '</td><td style="font-weight:700;" class="text-center ' + group_assoc + '"></td></tr>');
                         last = group;
